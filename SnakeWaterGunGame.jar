@@ -1,0 +1,116 @@
+package com.testing_java;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
+
+
+public class SnakeWaterGun {
+
+	public static void main(String[] args) {
+		List<String> myList = Arrays.asList("S", "W", "G");
+		
+		int a = 0, b = 0, c = 0, d = 0, e = 0;
+		
+		Random r = new Random();
+		
+		while (c < 10) {
+			int randomitem = r.nextInt(myList.size());
+			String computer = myList.get(randomitem); 
+
+			
+			Scanner sc= new Scanner(System.in); 
+			System.out.print("Lets play Snake Water Gun!\nChose S for Snake, W for Water or G for Gun: "); 
+			String choice = sc.next();
+			
+			if (choice.toUpperCase().equals("S")) {
+				if (computer.equals("S")) {
+		            c = c+1;
+		            d = d+1;
+		            System.out.println(String.format("Both chose Snake! Match tied. You have %d tries left!", 10-c));
+		            System.out.println("----------------------------------------------------------");
+		            
+				}
+		            
+		        else if (computer.equals("W")) {
+		           c = c+1;
+		           a = a+1;
+		           System.out.println(String.format("Computer chose Water! You won. You have %d tries left!", 10-c));
+		           System.out.println("----------------------------------------------------------");
+		           
+				}
+				
+		        else if (computer.equals("G")) {
+		            c = c+1;
+		            b = b+1;
+		            System.out.println(String.format("Oops, Computer chose Gun! You lost. You have %d tries left!", 10-c));
+		            System.out.println("----------------------------------------------------------");
+		            
+		            
+		        }
+					
+			}
+			
+			else if (choice.toUpperCase().equals("W")) {
+		        if (computer.equals("S")) {
+		            c = c+1;
+		            b = b+1;
+		            System.out.println(String.format("Oops, Computer chose Snake! You lost. You have %d tries left!", 10-c));
+		            System.out.println("----------------------------------------------------------");
+		            
+		        }
+		        else if (computer.equals("W")) {
+		            c = c+1;
+		            d = d+1;
+		            System.out.println(String.format("Both chose Water! Match tied. You have %d tries left!", 10-c));
+		            System.out.println("----------------------------------------------------------");
+		            
+		        }
+		        else if (computer.equals("G")) {
+		            c = c+1;
+		            a = a+1;
+		            System.out.println(String.format("Computer chose Gun! You won. You have %d tries left!", 10-c));
+		            System.out.println("----------------------------------------------------------");
+		            
+		        }
+			}
+			
+			else if (choice.toUpperCase().equals("G")) {
+		        if (computer.equals("S")) {
+		            c = c+1;
+		            a = a+1;
+		            System.out.println(String.format("Computer chose Snake! You won. You have %d tries left!", 10-c));
+		            System.out.println("----------------------------------------------------------");
+		            
+		        }
+		        else if (computer.equals("W")) {
+		            c = c+1;
+		            b = b+1;
+		            System.out.println(String.format("Oops, Computer chose Water! You lost. You have %d tries left!", 10-c));
+		            System.out.println("----------------------------------------------------------");
+		            
+		        }
+		        else if (computer.equals("G")) {
+		            c = c+1;
+		            d = d+1;
+		            System.out.println(String.format("Both chose Gun! Match tied. You have %d tries left!", 10-c));
+		            System.out.println("----------------------------------------------------------");
+		            
+		        }
+			}
+			
+			else {
+		        c = c+1;
+		        e = e+1;
+		        System.out.println(String.format("Invalid Input! You have %d tries left!", 10-c));
+		        System.out.println("----------------------------------------------------------");
+			}
+		}
+		
+		System.out.println(String.format("You have %d tries left! Won = %d, Lost = %d, Tied = %d, Invalid = %d", 10-c, a,b,d,e));
+
+
+	}
+
+}
